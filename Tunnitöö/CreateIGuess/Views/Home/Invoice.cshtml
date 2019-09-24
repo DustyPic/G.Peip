@@ -1,0 +1,38 @@
+﻿@model Invoice
+@{
+
+}
+	<h1>Invoice @Model.InvoiceNo</h1>
+<table class="table table-bordered col-md-4">
+	<tr>
+		<td>Id</td>
+		<td>@Model.Id</td>
+	</tr>
+	@*<tr>
+		<td>No</td>
+		<td>@Model.InvoiceNo</td>
+	</tr>*@
+	<tr>
+		<td>Date</td>
+		<td>@Model.Date.ToShortDateString()</td>
+	</tr>
+</table>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Line Item</th>
+			<th>Sum</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var line in Model.Lines)
+		{
+			<tr>
+				<td>@line.Id</td>
+				<td>@line.LineItem</td>
+				<td>@line.Sum</td>
+			</tr>
+		}
+	</tbody>
+</table>
